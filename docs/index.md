@@ -4,7 +4,8 @@ The mod loader allows users to create mods for games and distribute them as zips
 
 Importantly, it provides methods to change existing scripts, scenes, and resources without modifying and distributing vanilla game files.
 
-!> Please note that GML does not condone the use of malicious mods. e.g. mods that allow for cheating in online games, among other things.
+!!! warning
+Please note that GML does not condone the use of malicious mods. e.g. mods that allow for cheating in online games, among other things.
 
 ## Mod Developer
 1. [Decompile the Game](guides/modding/decompile_games.md)
