@@ -25,6 +25,7 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
+      - run: pip install pygments
       - run: python gdscript.py
       - run: pip install mkdocs-material
       - run: pip install "mkdocs-material[imaging]"
