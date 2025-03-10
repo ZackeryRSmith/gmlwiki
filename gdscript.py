@@ -14,14 +14,14 @@ from pygments.token import (
     Punctuation,
 )
 
-__all__ = ["GDScriptLexer", "GDScriptStyle"]
+__all__ = ["GDScriptBetterLexer", "GDScriptStyle"]
 
-class GDScriptLexer(RegexLexer):
+class GDScriptBetterLexer(RegexLexer):
     """
     For GDScript source code.
     """
 
-    name = "GDScript"
+    name = "GDScriptBetter"
     url = 'https://www.godotengine.org'
     aliases = ["gdscript", "gd"]
     filenames = ["*.gd"]
