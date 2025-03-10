@@ -1,0 +1,16 @@
+
+/* highlighted inline code within links has visibility issues */
+a > code, a:hover {
+    text-decoration: underline;
+    /* stops interference with _ and similar chars */
+    text-underline-offset: 4px;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
