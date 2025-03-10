@@ -42,7 +42,7 @@ vanilla file structure: `res://mods-unpacked/Author-ModName/extensions/singleton
 
 === "Godot 4"
 
-    ```gdscript
+    ```gdscriptbetter
     # Our base script is the original game script.
     extends "res://singletons/progress_data.gd"
     
@@ -59,7 +59,7 @@ vanilla file structure: `res://mods-unpacked/Author-ModName/extensions/singleton
 
 === "Godot 3"
 
-    ```gdscript
+    ```gdscriptbetter
     # Our base script is the original game script.
     extends "res://singletons/progress_data.gd"
     
@@ -81,7 +81,7 @@ output value by calling the base method first, changing something and then retur
 
 === "Godot 4"
 
-    ```gdscript
+    ```gdscriptbetter
     func get_playtime_days() -> int:
         var days = super()
         return days + 2
@@ -89,7 +89,7 @@ output value by calling the base method first, changing something and then retur
 
 === "Godot 3"
 
-    ```gdscript
+    ```gdscriptbetter
     func get_playtime_days() -> int:
         var days = .get_playtime_days()
         return days + 2
