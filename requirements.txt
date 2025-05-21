@@ -36,4 +36,4 @@ tinycss2==1.4.0
 urllib3==2.3.0
 watchdog==6.0.0
 webencodings==0.5.1
-git+https://github.com/GodotModding/pygments-gdscript.git@v1.0.0
+git+https://github.com/GodotModding/pygments-gdscript.git@geedee
