@@ -42,7 +42,7 @@ vanilla file structure: `res://mods-unpacked/Author-ModName/extensions/singleton
 
 === "Godot 4"
 
-    ```gdscript
+    ```geedee
     # Our base script is the original game script.
     extends "res://singletons/progress_data.gd"
     
