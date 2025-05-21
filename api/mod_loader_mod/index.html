@@ -1,0 +1,2328 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This Class provides helper functions to build mods.">
+      
+      
+      
+      
+        <link rel="prev" href="../mod_loader_api/">
+      
+      
+        <link rel="next" href="../mod_loader_log/">
+      
+      
+      <link rel="icon" href="../../_media/favicon-96x96.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>ModLoaderMod - Godot Mod Loader Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h-2V7h2m0 10h-2v-6h2m-1-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/gdscript_highlight.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="ModLoaderMod - Godot Mod Loader Wiki" >
+      
+        <meta  property="og:description"  content="This Class provides helper functions to build mods." >
+      
+        <meta  property="og:image"  content="./assets/images/social/api/mod_loader_mod.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="None" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="ModLoaderMod - Godot Mod Loader Wiki" >
+      
+        <meta  name="twitter:description"  content="This Class provides helper functions to build mods." >
+      
+        <meta  name="twitter:image"  content="./assets/images/social/api/mod_loader_mod.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modloadermod" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Godot Mod Loader Wiki" class="md-header__button md-logo" aria-label="Godot Mod Loader Wiki" data-md-component="logo">
+      
+  <img src="../../_media/logo_outline.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Godot Mod Loader Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ModLoaderMod
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2c-1.82 0-3.53.5-5 1.35C8 5.08 10 8.3 10 12s-2 6.92-5 8.65C6.47 21.5 8.18 22 10 22a10 10 0 0 0 10-10A10 10 0 0 0 10 2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/GodotModding/godot-mod-loader/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Godot Mod Loader
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Godot Mod Loader Wiki" class="md-nav__button md-logo" aria-label="Godot Mod Loader Wiki" data-md-component="logo">
+      
+  <img src="../../_media/logo_outline.png" alt="logo">
+
+    </a>
+    Godot Mod Loader Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/GodotModding/godot-mod-loader/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Godot Mod Loader
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Mod Loader API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Mod Loader API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod_loader_api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ModLoaderMod
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderMod
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method Descriptions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-install_script_extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      install_script_extension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-install_script_hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      install_script_hooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-add_hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_hook
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-register_global_classes_from_array" class="md-nav__link">
+    <span class="md-ellipsis">
+      register_global_classes_from_array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-add_translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_translation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-refresh_scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      refresh_scene
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-extend_scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      extend_scene
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-get_mod_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_mod_data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-get_mod_data_all" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_mod_data_all
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-get_unpacked_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_unpacked_dir
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-is_mod_loaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      is_mod_loaded
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-is_mod_active" class="md-nav__link">
+    <span class="md-ellipsis">
+      is_mod_active
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod_loader_log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderLog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod_loader_log_entry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderLogEntry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod_loader_hook_chain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderHookChain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod_loader_config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderConfig
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod_loader_deprecated/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderDeprecated
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod_loader_user_profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderUserProfile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Godot 3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Godot 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../godot_3/mod_loader_mod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderMod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../godot_3/mod_loader_log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderLog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../godot_3/mod_loader_config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderConfig
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../godot_3/mod_loader_deprecated/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderDeprecated
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../godot_3/mod_loader_user_profile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderUserProfile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../godot_3/mod_loader_mod_manager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ModLoaderModManager
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    For Modders
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            For Modders
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modding Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Modding Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/tools/decompile_games/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Decompiling with Godot RE Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/tools/mod_tool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mod Tool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/tools/workshop_uploader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workshop Uploader
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/tools/godot_steam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GodotSteam
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/script_extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Script Extensions
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/script_hooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Script Hooks
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/overwriting_game_resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding and Replacing Game Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/config_json/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config JSON
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/global_classes_and_child_nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Global Classes & Child Nodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/creating_mod_config_schema/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Settings For Your Mod
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/file_paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Important Files and Folders
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/mod_structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mod Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/mod_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mod Files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/using_other_mods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Other Mods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/distributing_mods/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Distributing Mods
+  </span>
+  
+    
+  
+  
+    <span class="md-status md-status--new"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/modding/testing_debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing and Debugging Mods
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    For Integrators
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            For Integrators
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/integration/cli_args/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GML Command Line Arguments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/integration/mod_loader_options/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mod Loader Options
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/integration/godot_project_setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Godot Project Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/integration/mod_distribution/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mod Distribution
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/integration/user_profiles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Profiles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    For Mod Users
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            For Mod Users
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/integration/mod_loader_self_setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mod Loader Self Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Other
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Other
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/upcoming_features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upcoming Features
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/breaking_changes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Breaking Changes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/known_issues/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Known Issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Method Descriptions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method Descriptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#method-install_script_extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      install_script_extension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-install_script_hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      install_script_hooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-add_hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_hook
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-register_global_classes_from_array" class="md-nav__link">
+    <span class="md-ellipsis">
+      register_global_classes_from_array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-add_translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_translation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-refresh_scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      refresh_scene
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-extend_scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      extend_scene
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-get_mod_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_mod_data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-get_mod_data_all" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_mod_data_all
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-get_unpacked_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_unpacked_dir
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-is_mod_loaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      is_mod_loaded
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-is_mod_active" class="md-nav__link">
+    <span class="md-ellipsis">
+      is_mod_active
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="modloadermod">ModLoaderMod<a class="headerlink" href="#modloadermod" title="Permanent link">🔗</a></h1>
+<p><strong>Inherits</strong>: Object</p>
+<p>This Class provides helper functions to build mods.</p>
+<hr style="border-width: thick">
+
+<h2 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">🔗</a></h2>
+<h4 id="constant-LOG_NAME">• <code class="highlight"><span class="n">LOG_NAME</span></code>: <code class="highlight"><span class="s2">&quot;ModLoader:Mod&quot;</span></code><a class="headerlink" href="#constant-LOG_NAME" title="Permanent link">🔗</a></h4>
+<hr style="border-width: thick">
+
+<h2 id="method-descriptions">Method Descriptions<a class="headerlink" href="#method-descriptions" title="Permanent link">🔗</a></h2>
+<h3 id="method-install_script_extension">• <abbr title="No return value">void</abbr> <code class="highlight">install_script_extension(child_script_path: <a href="https://docs.godotengine.org/en/stable/classes/class_string.html">String</a>)</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-install_script_extension" title="Permanent link">🔗</a></h3>
+<h4 id="description">Description:<a class="headerlink" href="#description" title="Permanent link">🔗</a></h4>
+<p>Installs a script extension that extends a <abbr title="Refers to the base game without modifications">vanilla</abbr> script.</p>
+<h4 id="parameters">Parameters:<a class="headerlink" href="#parameters" title="Permanent link">🔗</a></h4>
+<ul>
+<li><code class="highlight"><span class="n">child_script_path</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>): The path to the mod's extender script.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>No return value</li>
+</ul>
+<p>This is the preferred way of modifying a <abbr title="Refers to the base game without modifications">vanilla</abbr> <a href="https://docs.godotengine.org/en/stable/classes/class_script.html"><code class="highlight"><span class="n">Script</span></code></a><br />
+Since Godot 4, extensions can cause issues with scripts that use <code class="highlight"><span class="k">class_name</span></code> and should be avoided if present.<br />
+See <a href="#method-add_hook"><code class="highlight"><span class="n">add_hook</span><span class="p">()</span></code></a> for those cases.</p>
+<p>The <code class="highlight"><span class="n">child_script_path</span></code> should point to your mod's extender script.<br />
+Example: <code class="highlight"><span class="s2">&quot;MOD/extensions/singletons/utils.gd&quot;</span></code><br />
+Inside the extender script, include <code class="highlight"><span class="k">extends</span><span class="w"> </span><span class="p">{</span><span class="n">target</span><span class="p">}</span></code> where <code class="highlight"><span class="p">{</span><span class="n">target</span><span class="p">}</span></code> is the <abbr title="Refers to the base game without modifications">vanilla</abbr> path.<br />
+Example: <code class="highlight"><span class="k">extends</span><span class="w"> </span><span class="s2">&quot;res://singletons/utils.gd&quot;</span></code>.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your extender script doesn't have to follow the same <abbr title="Programmer word for &quot;Folder&quot;">directory</abbr> path as the <abbr title="Refers to the base game without modifications">vanilla</abbr> file, but it's good practice to do so.</p>
+</div>
+<hr />
+<h3 id="method-install_script_hooks">• <abbr title="No return value">void</abbr> <code class="highlight">install_script_hooks(vanilla_script_path: <a href="https://docs.godotengine.org/en/stable/classes/class_string.html">String</a>, hook_script_path: <a href="https://docs.godotengine.org/en/stable/classes/class_string.html">String</a>)</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-install_script_hooks" title="Permanent link">🔗</a></h3>
+<h4 id="description_1">Description:<a class="headerlink" href="#description_1" title="Permanent link">🔗</a></h4>
+<p>Adds all <abbr title="Name for functions which belong to an object">methods</abbr> from a file as hooks. </p>
+<h4 id="parameters_1">Parameters:<a class="headerlink" href="#parameters_1" title="Permanent link">🔗</a></h4>
+<ul>
+<li><code class="highlight"><span class="n">vanilla_script_path</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>): The path to the script which will be hooked.  </li>
+<li><code class="highlight"><span class="n">hook_script_path</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>): The path to the script containing hooks.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>No return value</li>
+</ul>
+<p>The file needs to extend <a href="https://docs.godotengine.org/en/stable/classes/class_object.html"><code class="highlight"><span class="nb nb-Type">Object</span></code></a>.<br />
+The <abbr title="Name for functions which belong to an object">methods</abbr> in the file need to have the exact same name as the <abbr title="Refers to the base game without modifications">vanilla</abbr> <abbr title="Name for a function that belongs to an object">method</abbr> they intend to hook, all mismatches will be ignored. <br />
+See: <a href="#method-add_hook"><code class="highlight"><span class="n">add_hook</span><span class="p">()</span></code></a>   </p>
+<h4 id="examples">Examples:<a class="headerlink" href="#examples" title="Permanent link">🔗</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GDScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">ModLoaderMod</span><span class="o">.</span><span class="n">install_script_hooks</span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="s2">&quot;res://tools/utilities.gd&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="n">extensions_dir_path</span><span class="o">.</span><span class="n">path_join</span><span class="p">(</span><span class="s2">&quot;tools/utilities-hook.gd&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<h3 id="method-add_hook">• <abbr title="No return value">void</abbr> <code class="highlight">add_hook(mod_callable: <a href="https://docs.godotengine.org/en/stable/classes/class_callable.html">Callable</a>, script_path: <a href="https://docs.godotengine.org/en/stable/classes/class_string.html">String</a>, method_name: <a href="https://docs.godotengine.org/en/stable/classes/class_string.html">String</a>)</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-add_hook" title="Permanent link">🔗</a></h3>
+<h4 id="description_2">Description:<a class="headerlink" href="#description_2" title="Permanent link">🔗</a></h4>
+<p>Adds a hook, a custom mod function, to a <abbr title="Refers to the base game without modifications">vanilla</abbr> <abbr title="Name for a function that belongs to an object">method</abbr>.</p>
+<h4 id="parameters_2">Parameters:<a class="headerlink" href="#parameters_2" title="Permanent link">🔗</a></h4>
+<ul>
+<li><code class="highlight"><span class="n">mod_callable</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_callable.html"><code class="highlight"><span class="n">Callable</span></code></a>): The function that will executed when the <abbr title="Refers to the base game without modifications">vanilla</abbr> <abbr title="Name for a function that belongs to an object">method</abbr> is executed. When writing a mod <abbr title="A function object, which can be passed around and called later">callable</abbr>, make sure that it <em>always</em> receives a <a href="../mod_loader_hook_chain/"><code class="highlight"><span class="n">ModLoaderHookChain</span></code></a> object as first <abbr title="A variable passed into a function">argument</abbr>, which is used to continue down the hook chain (see: <a href="../mod_loader_hook_chain/#method-execute_next"><code class="highlight"><span class="n">ModLoaderHookChain</span><span class="o">.</span><span class="n">execute_next</span><span class="p">()</span></code></a>) and allows manipulating parameters before and return values after the <abbr title="Refers to the base game without modifications">vanilla</abbr> <abbr title="Name for a function that belongs to an object">method</abbr> is called.   </li>
+<li><code class="highlight"><span class="n">script_path</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>): Path to the <abbr title="Refers to the base game without modifications">vanilla</abbr> script that holds the <abbr title="Name for a function that belongs to an object">method</abbr>.  </li>
+<li><code class="highlight"><span class="n">method_name</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>): The <abbr title="Name for a function that belongs to an object">method</abbr> the hook will be applied to.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>No return value</li>
+</ul>
+<p>Opposed to script extensions, hooks can be applied to scripts that use <code class="highlight"><span class="k">class_name</span></code> without issues.<br />
+If possible, prefer <a href="#method-install_script_extension"><code class="highlight"><span class="n">install_script_extension</span><span class="p">()</span></code></a>.</p>
+<h4 id="examples_1">Examples:<a class="headerlink" href="#examples_1" title="Permanent link">🔗</a></h4>
+<p>Given the following <abbr title="Refers to the base game without modifications">vanilla</abbr> script <code class="highlight"><span class="n">main</span><span class="o">.</span><span class="n">gd</span></code>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GDScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">8</a></span>
+<span class="normal"><a href="#__codelineno-1-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">class_name</span><span class="w"> </span><span class="n">MainGame</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">extends</span><span class="w"> </span><span class="n">Node2D</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="k">var</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;vanilla 1.0.0&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">():</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="o">$</span><span class="n">CanvasLayer</span><span class="o">/</span><span class="n">Control</span><span class="o">/</span><span class="n">Label</span><span class="o">.</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Version: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">version</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">Utilities</span><span class="o">.</span><span class="n">format_date</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">2024</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+ It can be hooked in <code class="highlight"><span class="n">mod_main</span><span class="o">.</span><span class="n">gd</span></code> like this
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">GDScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span>
+<span class="normal"><a href="#__codelineno-2-31">31</a></span>
+<span class="normal"><a href="#__codelineno-2-32">32</a></span>
+<span class="normal"><a href="#__codelineno-2-33">33</a></span>
+<span class="normal"><a href="#__codelineno-2-34">34</a></span>
+<span class="normal"><a href="#__codelineno-2-35">35</a></span>
+<span class="normal"><a href="#__codelineno-2-36">36</a></span>
+<span class="normal"><a href="#__codelineno-2-37">37</a></span>
+<span class="normal"><a href="#__codelineno-2-38">38</a></span>
+<span class="normal"><a href="#__codelineno-2-39">39</a></span>
+<span class="normal"><a href="#__codelineno-2-40">40</a></span>
+<span class="normal"><a href="#__codelineno-2-41">41</a></span>
+<span class="normal"><a href="#__codelineno-2-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">func</span><span class="w"> </span><span class="n">_init</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">ModLoaderMod</span><span class="o">.</span><span class="n">add_hook</span><span class="p">(</span><span class="n">change_version</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;res://main.gd&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;_ready&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">ModLoaderMod</span><span class="o">.</span><span class="n">add_hook</span><span class="p">(</span><span class="n">time_travel</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;res://tools/utilities.gd&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;format_date&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="c1"># Multiple hooks can be added to a single method.</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="n">ModLoaderMod</span><span class="o">.</span><span class="n">add_hook</span><span class="p">(</span><span class="n">add_season</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;res://tools/utilities.gd&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;format_date&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="c1"># The script we are hooking is attached to a node, which we can get from reference_object</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1"># then we can change any variables it has</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="k">func</span><span class="w"> </span><span class="n">change_version</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span><span class="w"> </span><span class="n">ModLoaderHookChain</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="p">:</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="c1"># Using a typecast here (with &quot;as&quot;) can help with autocomplete and avoiding errors</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">main_node</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">chain</span><span class="o">.</span><span class="n">reference_object</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">MainGame</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="n">main_node</span><span class="o">.</span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Modloader Hooked!&quot;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">    </span><span class="c1"># _ready, which we are hooking, does not have any arguments</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="n">chain</span><span class="o">.</span><span class="n">execute_next</span><span class="p">()</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="c1"># Parameters can be manipulated easily by changing what is passed into .execute_next()</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="c1"># The vanilla method (Utilities.format_date) takes 3 arguments, our hook method takes</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="c1"># the ModLoaderHookChain followed by the same 3</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="k">func</span><span class="w"> </span><span class="n">time_travel</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span><span class="w"> </span><span class="n">ModLoaderHookChain</span><span class="p">,</span><span class="w"> </span><span class="n">day</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">String</span><span class="p">:</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time travel!&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">    </span><span class="n">year</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">100</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">    </span><span class="c1"># Just the vanilla arguments are passed along in the same order, wrapped into an Array</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chain</span><span class="o">.</span><span class="n">execute_next</span><span class="p">([</span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">])</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">val</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="c1"># The return value can be manipulated by calling the next hook (or vanilla) first</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="c1"># then changing it and returning the new value.</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="k">func</span><span class="w"> </span><span class="n">add_season</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span><span class="w"> </span><span class="n">ModLoaderHookChain</span><span class="p">,</span><span class="w"> </span><span class="n">day</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">:</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb nb-Type">String</span><span class="p">:</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chain</span><span class="o">.</span><span class="n">execute_next</span><span class="p">([</span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">])</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="w">    </span><span class="k">match</span><span class="w"> </span><span class="n">month</span><span class="p">:</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="w">        </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="w">            </span><span class="n">output</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;, Winter&quot;</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="w">        </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">:</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="w">            </span><span class="n">output</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;, Spring&quot;</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38"></a><span class="w">        </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">:</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="w">            </span><span class="n">output</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;, Summer&quot;</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40"></a><span class="w">        </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">:</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41"></a><span class="w">            </span><span class="n">output</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;, Autumn&quot;</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">output</span>
+</code></pre></div></td></tr></table></div></p>
+<hr />
+<h3 id="method-register_global_classes_from_array">• <abbr title="No return value">void</abbr> <code class="highlight">register_global_classes_from_array(new_global_classes: <a href="https://docs.godotengine.org/en/stable/classes/class_array.html">Array</a>)</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-register_global_classes_from_array" title="Permanent link">🔗</a></h3>
+<h4 id="description_3">Description:<a class="headerlink" href="#description_3" title="Permanent link">🔗</a></h4>
+<p>Registers an array of classes to the global scope since Godot only does that in the editor.</p>
+<h4 id="parameters_3">Parameters:<a class="headerlink" href="#parameters_3" title="Permanent link">🔗</a></h4>
+<ul>
+<li><code class="highlight"><span class="n">new_global_classes</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_array.html"><code class="highlight"><span class="nb nb-Type">Array</span></code></a>): An array of class definitions to be registered.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>No return value</li>
+</ul>
+<p>Format: <code class="highlight"><span class="p">{</span><span class="w"> </span><span class="s2">&quot;base&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ParentClass&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ClassName&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GDScript&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;res://path/class_name.gd&quot;</span><span class="w"> </span><span class="p">}</span></code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can find these easily in the project.godot file under <code>_global_script_classes</code>
+(but you should only include classes belonging to your mod)</p>
+</div>
+<hr />
+<h3 id="method-add_translation">• <abbr title="No return value">void</abbr> <code class="highlight">add_translation(resource_path: <a href="https://docs.godotengine.org/en/stable/classes/class_string.html">String</a>)</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-add_translation" title="Permanent link">🔗</a></h3>
+<h4 id="description_4">Description:<a class="headerlink" href="#description_4" title="Permanent link">🔗</a></h4>
+<p>Adds a translation file.</p>
+<h4 id="parameters_4">Parameters:<a class="headerlink" href="#parameters_4" title="Permanent link">🔗</a></h4>
+<ul>
+<li>
+<p><code class="highlight"><span class="n">resource_path</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>): The path to the translation resource file.<br />
+<strong>Returns:</strong></p>
+</li>
+<li>
+<p>No return value</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="highlight"><span class="o">.</span><span class="n">translation</span></code> file should have been created by the Godot editor already, usually when importing a CSV file. The translation file should named <code class="highlight"><span class="n">name</span><span class="o">.</span><span class="n">langcode</span><span class="o">.</span><span class="n">translation</span></code> -&gt; <code class="highlight"><span class="n">mytranslation</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">translation</span></code>.</p>
+</div>
+<hr />
+<h3 id="method-refresh_scene">• <abbr title="No return value">void</abbr> <code class="highlight">refresh_scene(scene_path: <a href="https://docs.godotengine.org/en/stable/classes/class_string.html">String</a>)</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-refresh_scene" title="Permanent link">🔗</a></h3>
+<h4 id="description_5">Description:<a class="headerlink" href="#description_5" title="Permanent link">🔗</a></h4>
+<p>Marks the given scene for to be refreshed. It will be refreshed at the correct point in time later.</p>
+<h4 id="parameters_5">Parameters:<a class="headerlink" href="#parameters_5" title="Permanent link">🔗</a></h4>
+<ul>
+<li>
+<p><code class="highlight"><span class="n">scene_path</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>): The path to the scene file to be refreshed. <br />
+<strong>Returns:</strong></p>
+</li>
+<li>
+<p>No return value</p>
+</li>
+</ul>
+<div class="admonition abstract">
+<p class="admonition-title">Version</p>
+<p>This function requires Godot 4.3 or higher.</p>
+</div>
+<p>This function is useful if a script extension is not automatically applied. This situation can occur when a script is attached to a preloaded scene. If you encounter issues where your script extension is not working as expected, try to identify the scene to which it is attached and use this <abbr title="Name for a function that belongs to an object">method</abbr> to refresh it. This will reload already loaded scenes and apply the script extension.   </p>
+<hr />
+<h3 id="method-extend_scene">• <abbr title="No return value">void</abbr> <code class="highlight">extend_scene(scene_vanilla_path: <a href="https://docs.godotengine.org/en/stable/classes/class_string.html">String</a>, edit_callable: <a href="https://docs.godotengine.org/en/stable/classes/class_callable.html">Callable</a>)</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-extend_scene" title="Permanent link">🔗</a></h3>
+<h4 id="description_6">Description:<a class="headerlink" href="#description_6" title="Permanent link">🔗</a></h4>
+<p>Extends a specific scene by providing a <abbr title="A function object, which can be passed around and called later">callable</abbr> function to modify it.   </p>
+<h4 id="parameters_6">Parameters:<a class="headerlink" href="#parameters_6" title="Permanent link">🔗</a></h4>
+<ul>
+<li><code class="highlight"><span class="n">scene_vanilla_path</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>): The path to the <abbr title="Refers to the base game without modifications">vanilla</abbr> scene file.  </li>
+<li><code class="highlight"><span class="n">edit_callable</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_callable.html"><code class="highlight"><span class="n">Callable</span></code></a>): The <abbr title="A function object, which can be passed around and called later">callable</abbr> function to modify the scene.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li>No return value</li>
+</ul>
+<p>The <abbr title="A function object, which can be passed around and called later">callable</abbr> receives an instance of the "vanilla_scene" as the first parameter.  </p>
+<hr />
+<h3 id="method-get_mod_data">• <a href="https://docs.godotengine.org/en/stable/classes/class_moddata.html"><code class="highlight"><span class="n">ModData</span></code></a> <code class="highlight">get_mod_data(mod_id: <a href="https://docs.godotengine.org/en/stable/classes/class_string.html">String</a>)</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-get_mod_data" title="Permanent link">🔗</a></h3>
+<h4 id="description_7">Description:<a class="headerlink" href="#description_7" title="Permanent link">🔗</a></h4>
+<p>Gets the <a href="https://docs.godotengine.org/en/stable/classes/class_moddata.html"><code class="highlight"><span class="n">ModData</span></code></a> from the provided namespace.</p>
+<h4 id="parameters_7">Parameters:<a class="headerlink" href="#parameters_7" title="Permanent link">🔗</a></h4>
+<ul>
+<li><code class="highlight"><span class="n">mod_id</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>): The ID of the mod.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_moddata.html"><code class="highlight"><span class="n">ModData</span></code></a>: The <a href="https://docs.godotengine.org/en/stable/classes/class_moddata.html"><code class="highlight"><span class="n">ModData</span></code></a> associated with the provided <code class="highlight"><span class="n">mod_id</span></code>, or null if the <code class="highlight"><span class="n">mod_id</span></code> is invalid.  </li>
+</ul>
+<hr />
+<h3 id="method-get_mod_data_all">• <a href="https://docs.godotengine.org/en/stable/classes/class_dictionary.html"><code class="highlight"><span class="nb nb-Type">Dictionary</span></code></a> <code class="highlight">get_mod_data_all()</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-get_mod_data_all" title="Permanent link">🔗</a></h3>
+<h4 id="description_8">Description:<a class="headerlink" href="#description_8" title="Permanent link">🔗</a></h4>
+<p>Gets the <a href="https://docs.godotengine.org/en/stable/classes/class_moddata.html"><code class="highlight"><span class="n">ModData</span></code></a> of all loaded Mods as <a href="https://docs.godotengine.org/en/stable/classes/class_dictionary.html"><code class="highlight"><span class="nb nb-Type">Dictionary</span></code></a>.</p>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_dictionary.html"><code class="highlight"><span class="nb nb-Type">Dictionary</span></code></a>: A dictionary containing the <a href="https://docs.godotengine.org/en/stable/classes/class_moddata.html"><code class="highlight"><span class="n">ModData</span></code></a> of all loaded mods.  </li>
+</ul>
+<hr />
+<h3 id="method-get_unpacked_dir">• <a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a> <code class="highlight">get_unpacked_dir()</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-get_unpacked_dir" title="Permanent link">🔗</a></h3>
+<h4 id="description_9">Description:<a class="headerlink" href="#description_9" title="Permanent link">🔗</a></h4>
+<p>Returns the path to the <abbr title="Programmer word for &quot;Folder&quot;">directory</abbr> where unpacked mods are stored.</p>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>: The path to the unpacked mods <abbr title="Programmer word for &quot;Folder&quot;">directory</abbr>.  </li>
+</ul>
+<hr />
+<h3 id="method-is_mod_loaded">• <a href="https://docs.godotengine.org/en/stable/classes/class_bool.html"><code class="highlight"><span class="nb nb-Type">bool</span></code></a> <code class="highlight">is_mod_loaded(mod_id: <a href="https://docs.godotengine.org/en/stable/classes/class_string.html">String</a>)</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-is_mod_loaded" title="Permanent link">🔗</a></h3>
+<h4 id="description_10">Description:<a class="headerlink" href="#description_10" title="Permanent link">🔗</a></h4>
+<p>Returns true if the mod with the given <code class="highlight"><span class="n">mod_id</span></code> was successfully loaded.</p>
+<h4 id="parameters_8">Parameters:<a class="headerlink" href="#parameters_8" title="Permanent link">🔗</a></h4>
+<ul>
+<li><code class="highlight"><span class="n">mod_id</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>): The ID of the mod.</li>
+</ul>
+<p><strong>Returns:</strong></p>
+<ul>
+<li><a href="https://docs.godotengine.org/en/stable/classes/class_bool.html"><code class="highlight"><span class="nb nb-Type">bool</span></code></a>: true if the mod is loaded, false otherwise.  </li>
+</ul>
+<hr />
+<h3 id="method-is_mod_active">• <a href="https://docs.godotengine.org/en/stable/classes/class_bool.html"><code class="highlight"><span class="nb nb-Type">bool</span></code></a> <code class="highlight">is_mod_active(mod_id: <a href="https://docs.godotengine.org/en/stable/classes/class_string.html">String</a>)</code> <abbr title="This method does not need an instance to be called. &lt;br&gt;It can be called directly using the class name.">static</abbr><a class="headerlink" href="#method-is_mod_active" title="Permanent link">🔗</a></h3>
+<h4 id="description_11">Description:<a class="headerlink" href="#description_11" title="Permanent link">🔗</a></h4>
+<p>Returns true if the mod with the given mod_id was successfully loaded and is currently active. <br />
+Parameters: - <code class="highlight"><span class="n">mod_id</span></code> (<a href="https://docs.godotengine.org/en/stable/classes/class_string.html"><code class="highlight"><span class="nb nb-Type">String</span></code></a>): The ID of the mod. <br />
+Returns: - <a href="https://docs.godotengine.org/en/stable/classes/class_bool.html"><code class="highlight"><span class="nb nb-Type">bool</span></code></a>: true if the mod is loaded and active, false otherwise.</p>
+<hr />
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../mod_loader_api/" class="md-footer__link md-footer__link--prev" aria-label="Previous: API Overview">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                API Overview
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../mod_loader_log/" class="md-footer__link md-footer__link--next" aria-label="Next: ModLoaderLog">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                ModLoaderLog
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/GodotModding/godot-mod-loader/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/GodotModding/godot-mod-tool/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://discord.godotmodding.com/" target="_blank" rel="noopener" title="discord.godotmodding.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485 485 0 0 0 404.081 32.03a1.82 1.82 0 0 0-1.923.91 338 338 0 0 0-14.9 30.6 447.9 447.9 0 0 0-134.426 0 310 310 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.7 483.7 0 0 0-119.688 37.107 1.7 1.7 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.02 2.02 0 0 0 .765 1.375 487.7 487.7 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348 348 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321 321 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251 251 0 0 0 9.109-7.137 1.82 1.82 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.81 1.81 0 0 1 1.924.233 235 235 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.4 301.4 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391 391 0 0 0 30.014 48.815 1.86 1.86 0 0 0 2.063.7A486 486 0 0 0 610.7 405.729a1.88 1.88 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541M222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241m195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer", "navigation.indexes", "content.tabs.link", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>

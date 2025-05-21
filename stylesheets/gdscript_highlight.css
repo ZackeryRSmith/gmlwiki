@@ -1,0 +1,57 @@
+
+/*
+reference:
+https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#custom-syntax-theme-docsstylesheetsextracss
+other available color variables
+https://github.com/squidfunk/mkdocs-material/blob/master/src/templates/assets/stylesheets/main/_colors.scss
+*/
+:root > * {
+	--godot-theme-base-color: #363d4aff;
+
+	--md-code-hl-operator-color: #abc9ffff;
+	--md-code-hl-punctuation-color: #abc9ffff;
+	--md-code-hl-keyword-color: #ff7085ff;
+	--md-code-hl-special-color: #ff7085ff;
+	--md-code-hl-custom-class_nb_nb-Type: #42ffc2ff;
+	--md-code-hl-comment-color: #cdcfd280;
+	--md-code-hl-string-color: #ffeda1ff;
+	--md-code-bg-color: #1d2229ff;
+	--md-code-hl-generic-color: #cdcfd2ff;
+	--md-code-hl-name-color: #cdcfd2ff;
+	--md-code-fg-color: #cdcfd2ff;
+	--md-code-hl-color: #ffffff12;
+	--md-code-hl-number-color: #a1ffe0ff;
+	--md-code-hl-function-color: #57b3ffff;
+	--md-code-hl-variable-color: #bce0ffff;
+	--md-code-hl-constant-color: #bce0ffff;
+}
+
+[data-md-color-scheme="light"] {
+	--godot-theme-base-color: #e6e6e6ff;
+
+	--md-code-hl-operator-color: #00009cff;
+	--md-code-hl-punctuation-color: #00009cff;
+	--md-code-hl-keyword-color: #e62282ff;
+	--md-code-hl-special-color: #e62282ff;
+	--md-code-hl-custom-class_nb_nb-Type: #009933ff;
+	--md-code-hl-comment-color: #14141480;
+	--md-code-hl-string-color: #996b00ff;
+	--md-code-bg-color: #ffffffff;
+	--md-code-hl-generic-color: #393939ff;
+	--md-code-hl-name-color: #393939ff;
+	--md-code-fg-color: #393939ff;
+	--md-code-hl-color: #00000012;
+	--md-code-hl-number-color: #008c47ff;
+	--md-code-hl-function-color: #0039e6ff;
+	--md-code-hl-variable-color: #0066adff;
+	--md-code-hl-constant-color: #0066adff;
+}
+
+.highlight .nb.nb-Type {
+	color: var(--md-code-hl-custom-class_nb_nb-Type);
+}
+
+.highlighttable {
+    border: 5px solid var(--godot-theme-base-color);
+    border-radius: 3px;
+}
